@@ -1,3 +1,3 @@
 # TLI
 
-singleton
+[singletone.md]
