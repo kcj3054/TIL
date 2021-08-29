@@ -11,7 +11,7 @@
 * []() 
 
 ### c++
-* [함수포인터] (https://github.com/kcj3054/TIL/blob/main/c%2B%2B/%ED%95%A8%EC%88%98%ED%8F%AC%EC%9D%B8%ED%84%B0.md)
+* [함수포인터](https://github.com/kcj3054/TIL/blob/main/c%2B%2B/%ED%95%A8%EC%88%98%ED%8F%AC%EC%9D%B8%ED%84%B0.md)
 ### http
 
 ### 네트워크
