@@ -35,3 +35,20 @@ async function logTodoTitle() {
 1. fetchUser()를 이용하여 사용자 정보 호출
 2. 받아온 사용자 아이디가 1이면 할 일 정보 호출
 3. 받아온 할 일 정보의 제목을 콘솔에 출력
+
+
+#### method call vs callback 
+
+var arr = [1, 2, 3, 4, 5];
+var obj = {
+  vals: [1, 2, 3];
+  logvalues: function(v, i) {
+    if(this.vals) {
+      console.log(this.vals, i, v)
+    } else{
+      console.log(this, i, v);
+    }
+  }
+}
+obj.logvalues(1, 2); => [1, 2, 3] , 1, 2
+arr.forEach(obj.logvalues) =>  callback 
