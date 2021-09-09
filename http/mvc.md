@@ -38,5 +38,8 @@ frontController가 나오기전에는 각각의 컨트롤러가 클라이언트�
 
 스프링 mvc의 DispatcherServlet이 이런 frontController로 구현이 되어있습니다
 
+#### viewResolver
+컨트롤러가 반환한 논리 뷰 이름을 실제 물리 뷰 경로로 변경한다. 그리고 실제 물리 경로가 있는 MyView
+객체를 반환한다
 
 출처 : 김영님 스프링 mvc1
