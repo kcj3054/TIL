@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var txt = "ABCDEFGHI";
+        console.log(txt.length);
+
+        //indexOf
+        var str = "Please locate where locate";
+       console.log(str.indexOf("locate"));
+
+       if(str.indexOf("chang") > -1) {
+           console.log("chang문자 발견");
+       } 
+
+       //lastIndexOf
+       console.log(str.lastIndexOf("locate"));
+
+
+       console.log(str.search("locate"));
+
+
+       //slice
+       var str = "Apple, Banana, Kiwi";
+       console.log(str.slice(7, 13)); // 7번째부터 12까지 나온다 banana
+       console.log(str.slice(7)); //7번째부터 끝까지 
+       console.log(str.slice(-12, -6)); // -12인 B부터 -6포함x까지나온다 banana 맨뒤가 -1
+
+       //substring
+       console.log(str.substring(7, 13)); // 7 ~ 12
+
+       //substr
+       console.log(str.substr(7, 6)) // 7번째부터 6개 
+
+
+       var birthday = "960107";
+
+       var birthday = "1996-01-07";
+       console.log(birthday.substring(0, birthday.indexOf("-"))); // 0번째부터 -나오기전까찌 
+
+
+       //replace
+       
+    </script>
+</body>
+</html>

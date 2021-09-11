@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+        var url = "";
+
+        //promise
+        function getData() {
+            //promise
+
+            return new Promise(function (resolve, reject) {
+                axios.get(url)
+                    .then(function (response) {
+                        // handle success
+                        console.log(response);
+                        //수행한결과를 resolve에넣는다 
+                        resolve(response.data);
+                    });
+            });
+        }
+
+        //async await
+    
+        async function getData2() {
+            return (await axios.get(url)).data;
+        }
+
+        //async와 await는 한쌍이고 await는 함수내에서 해야한다 
+        async function calculateSum() {
+
+            //server를 통신 하는 것은 getData2는 기다려줘야한다 
+            var data = await getData2();
+
+            var total = 0;
+
+            for(var item of data) {
+                total += item;
+            }
+
+            console.log(total);
+        }
+
+        calculateSum();
+    </script>
+</body>
+</html>
