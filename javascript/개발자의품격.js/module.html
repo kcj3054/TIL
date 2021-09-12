@@ -7,8 +7,16 @@
     <title>Document</title>
 </head>
 <body>
+    <script type="module">
+        import {log, error, PI} from "./module.js";
+
+        log("log로 메시지 출력");
+        error("error로 메시지 출력")
+        console.log(PI);
+    </script>
+    <script src="/ref.js" type="module"></script>
     <script>
-        
+
     </script>
 </body>
 </html>
