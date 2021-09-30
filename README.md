@@ -1,4 +1,5 @@
 # TIL
+[TIL블로그](https://kcj3054.tistory.com/)
 
 ### 디자인 패턴
 * [싱글톤패턴](https://github.com/kcj3054/TLI/blob/main/singletone.md)
