@@ -1,0 +1,23 @@
+1. abcc라는 문자열이 있다. 여기서 부분 문자열로 하면 ab는 중복적으로 많이 나오게된다 ab, abc, abcc 이렇게 여러번 나오게된다.
+
+2. 여기서 ab를 계속적으로 구하는 것이 아닌 ab가 몇번 나오는지 횟수를 구할 수 있다 -> ab를 i j로 하겠다 ->    xxxxi j xxxx N이라고할때 i의 시작점은 여러개 일 수도있다, j의 시작점도 그러하다 그럼  일반화하면 -> i * (n - j + 1)이된다. 
+
+
+#### 키보드에서 각 단어의 위치를 알기!
+
+- 너무 무식하게 풀었었다. 3 * 9행으로 배열로 풀었는데 간단한 string을 생각하지못했다 string 한 배열에 한줄씩 숙숙 넣으면 각 원소의 위치를 찾기 쉽다
+
+
+```
+string keyboard[3] = {"qwertyuio", "pasdfghjk", "lzxcvbnm"};
+pair<int, int> coord[30];
+
+void Input() {
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < keyboard[i].length(); j++) {
+			coord[keyboard[i][j] - 'a'] = { i, j };
+		}
+	}
+}
+```
