@@ -1,5 +1,3 @@
-[##_Image|kage@U9Lw0/btrmEi6eIa7/NPmdWON6hpFDcLGR0Auq10/img.png|alignCenter|width="100%"|_##]
-
 디버깅을 통해서 값이 제대로 들어가나 확인을 하려고 했는데 벌레가 제대로 작동을 안한다... 왜 이런가 다시 삽질을 해 보니 .. 왼쪽 하단의 mute breakpoint가 눌러져있었다 이것을 해제하니 벌레가 제대로 작동했다... 
 
  mute breakpoint - > 브레이크 포인트 음소거.. 
