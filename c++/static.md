@@ -34,3 +34,64 @@ int main() {
 }
 
 ````
+
+
+## 클래스 내부의 static변수 초기화 관련 내용
+
+### 잘못된 초기화 
+
+- 클래스 내부의 static 변수는 별도의 공간(data 영역)에 잡히게된다. 그래서 한번만 초기화 되고, 클래스 내의 정적 변수는 객체가 공유한다.  이러한 이유로 정적 변수의 복사본이 여러개 있을 수는 없다.!!
+````
+#include<iostream>
+using namespace std;
+  
+class GfG
+{
+   public:
+     static int i;
+      
+     GfG()
+     {
+        // Do nothing
+     };
+};
+  
+int main()
+{
+  GfG obj1;
+  GfG obj2;
+  obj1.i =2;
+  obj2.i = 3;
+    
+  // prints value of i
+  cout << obj1.i<<" "<<obj2.i;   
+}
+````
+
+### 바른 초기화
+-  클래스 내부의 정적변수는 클래스 외부의 클래스이름 및 범위확인 연산자를 사용하여 명시적으로 초기화해야한다.
+````
+#include<iostream>
+using namespace std;
+  
+class GfG
+{
+public:
+    static int i;
+      
+    GfG()
+    {
+        // Do nothing
+    };
+};
+  
+int GfG::i = 1;
+  
+int main()
+{
+    GfG obj;
+    // prints value of i
+    cout << obj.i; 
+}
+````
+-출처 : https://www.geeksforgeeks.org/static-keyword-cpp/
