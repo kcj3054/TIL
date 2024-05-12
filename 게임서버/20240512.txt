@@ -1,0 +1,33 @@
+c++ 표준 mutex의 lock은 
+중복으로 lock을 걸 수가 없다. 
+그래서 자체적으로 구현하기도한다.
+
+루키스 왈 테라프로젝트에서 send부분에서 
+queue<SendBufferRef> 부분은 락프리큐로 되어있었다... 
+----------------------------
+
+루키스 강의에서 
+
+message S_LOGIN
+{
+bool success = 1;
+repeated PlayerInfo players = 2;
+}
+
+message C_ENTER_GAME
+{
+    uint64 playerIndex = 1; // 여러 플레이어 중에서 
+필요한 플레이어들 선택한 것 
+}
+TemplateId // 데이터 시트 아이디, 
+DBID // DB에서 유니크한 아이디, 
+GameID // NPC, MONSTER, .. 
+
+--------------------------------------------------
+
+//PlayerInfo에서 플레이어 구분하는 objectId가 존재
+메타버스에서도 동일, 제노니아는? 
+
+------------------------------------------------------
+
+// 3인칭  Thirdperson 
