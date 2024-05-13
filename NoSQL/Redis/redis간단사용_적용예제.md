@@ -14,8 +14,7 @@
  - redis는 언어처럼 자료구조가 존재한다. 
  
  ## set, get mset mget, expire  사용
- 
- [##_Image|kage@cItYe1/btryq5IaHoJ/9bskAwrKA0vhwbRbUPKkZ0/img.png|alignCenter|width="100%"|_##]
+
  
  
  - redis의 주요 특징 중 하나가 남아있는 수명 시간을 확인 할 수 있는 ttl [key]가 존재하고, 만료시간을 설정 할 수 있는 expire [key] [seconds]가 존재한다. 
