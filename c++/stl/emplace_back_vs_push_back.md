@@ -1,5 +1,10 @@
-## 
+## push_back vs emplace_back 
 
+- push_back보다는 emplace_back을 사용하자라는 말이 많았다 그 이유를 알아보자 (성능상 이유이다.)
+
+
+
+- 참고 (https://openmynotepad.tistory.com/10)
 
 ````
 #include <iostream>
