@@ -2,7 +2,18 @@
 
 - 소켓프로그래밍을 할 때 식당운영에서 손님, 안내원, 대표 이런식으로 설명을 하였다.
 
-- 
+## tcp 연결 - 해지 
+
+- tcp는 연결할 때 3 - way handshaking으로 연결되고, 해지될 때는 4 - way handshaking으로 해지된다.
+
+- 3-way handshaking..
+	- client가 랜덤으로 생성된 sequence number를 server로 보낸다  //  syn(sequence number)
+	- server는 listen을하고 있다가 client의 요청이온다면 sync_recv를한다 그후 server는 client에게 sync + ack(잘받았다~ client의 sync + 1)를 전송한다.
+	- client도 server의 sync + ack를 받은 후 잘 받았다는 의미로 server로 ack(server의 sequence number + 1)을 보낸다.
+	- tcp는 통신의 sequence number를 교환하는 것 + 정책을 서로에게 알려주는 것이다 예를들어 server의 mss(maximum segment size)는 1460이다. client의 mss는 1500이다.를 서로 합의하는 과정이다.
+	- 또한 tcp연결중에 교환되는 segment들은 payload가 없는 것고 ip, tcp부분의 헤더만 존재한다고 보면된다.
+![](../../../image/tcp_3way_handshake.png)
+
 
 ### DummyClient 부분 
 
