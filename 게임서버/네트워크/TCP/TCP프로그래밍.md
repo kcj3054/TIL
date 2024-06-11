@@ -10,9 +10,12 @@
 	- client가 랜덤으로 생성된 sequence number를 server로 보낸다  //  syn(sequence number)
 	- server는 listen을하고 있다가 client의 요청이온다면 sync_recv를한다 그후 server는 client에게 sync + ack(잘받았다~ client의 sync + 1)를 전송한다.
 	- client도 server의 sync + ack를 받은 후 잘 받았다는 의미로 server로 ack(server의 sequence number + 1)을 보낸다.
-	- tcp는 통신의 sequence number를 교환하는 것 + 정책을 서로에게 알려주는 것이다 예를들어 server의 mss(maximum segment size)는 1460이다. client의 mss는 1500이다.를 서로 합의하는 과정이다.
+	- tcp는 통신의 sequence number를 교환하는 것 + 정책을 서로에게 알려주는 것이다 예를들어 server의 mss(maximum segment size)는 1460이다. client의 mss는 1500이다.를 서로 합의하는 과정이다.(sync 패킷 옵션 필드에 자신의 mss값을 알린다)
 	- 또한 tcp연결중에 교환되는 segment들은 payload가 없는 것고 ip, tcp부분의 헤더만 존재한다고 보면된다.
 ![](../../../image/tcp_3way_handshake.png)
+
+	- cf : segment는 tcp단에서 데이터의 단위를 말한다. mss는 tcp 세그먼트의 최대 데이터크기, tcp 및 ip 헤더를 제외한 순수 데이터 페이로드를 의미한다.
+	- mss와 mtu를 비교하자면 mtu는 네트워크 인터페이스가 전송할 수 있는 최대 패킷크기, 여기서는 ip 및 tcp의 헤더를 포함한다.
 
 
 ### DummyClient 부분 
