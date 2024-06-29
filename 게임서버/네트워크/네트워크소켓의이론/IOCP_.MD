@@ -31,3 +31,17 @@
 
 -  Completion Port처리를 GetQueueCompletionStatus
 
+- iocp의 port는 socket에서의 port와 느낌이다르다 socket port는 bind 시 port를 
+엮는 것인데 iocp의 port(completion port)는 포트랑 스레드를 묶는 것이다. 
+- 워커 스레들 중 하나가 cp에서 입출력 완료를 꺼냄 
+
+- IO(RECV, SEND) 작업에서 동시 수행되는 스레드 개수의 상한선을 설정하여 CPU를 효율적으로 사용하자
+
+![](../../iocp_생성.PNG)
+
+- CreateIoCompletionPort는 두번 사용되는데 iocp 핸들을 생성할 때 그리고 socket을 cp에 등록할 때 2번째인자인 ExistingCompletionPort에 null이면 iocp 핸들 생성이라고 생각하면 됌  
+
+-GetQueuedCompletionStatus에서 TimeOut 에러는 괜찮음
+	- Timeout 에러는 단순히 함수가 호출된 시점에서 처리할 완료된 I/O 작업이 없다는 것을 나타내며, 이는 비동기 I/O 작업이 아직 완료되지 않았거나, 아직 처리해야 할 작업이 없다는 것을 의미합니다.
+
+- https://www.slideshare.net/namhyeonuk90/iocp

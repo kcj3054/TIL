@@ -7,6 +7,30 @@
 
 -   소켓과 관련된 네트워크 이벤트를 \[이벤트 객체\]를 통해 감지 받는다 (비동기 방식)
 
+## overlapped io 
+
+- 입력과 출력을 중첩(Overlapped)해서 다룬다.
+- 데이터 입력을 event를 통해 알 수 있기에 busy wait 발생하지 않는다.
+- 일반적인 경우 커널버퍼에 데이터를 복사한 후 유저모드에 존재하는
+버퍼로 옮긴다. 그렇지만 중첩 입출력 모델은 커널모드 버퍼에 데이터를
+복사하지않고, 바로 유저모드에 존재하는 버퍼에 데이터를 넣는다. 
+- 이렇게 된다면 데이터 복사 비용을 줄어든다.
+
+-  Overlapped I/O 모델은 I/O 요청과 이 요청의 완료를 나타내는 이벤트를 분리하여 다루는 방식입니다. 이 과정에서 OVERLAPPED 구조체와 관련된 함수들을 사용합니다.
+
+- LPWSAOVERLAPPED IpOverlapped
+    - Windows 소켓 API에서 사용되는 Overlapped I/O를 지원하기 위한 구조체 포인터 타입입니다
+- LPWSAOVERPAPPED _COMPLIETION IpCompletionRoutine:
+    - 비동기 I/O 작업이 완료될 때 호출되는 콜백 함수나 완료 루틴의 포인터입니다.
+
+-  lpOverlapped를 이용하면 이벤트가 완료되었을 때 프로세스한테 알려줍니다
+
+- 
+![overlapped io 설명 그림](../../overlapped_io.png)
+
+## overlapped io에서 WSARecv 함수 
+
+
 -   이벤트 객체 관련 함수들
 
 ```
@@ -49,7 +73,7 @@
 
 ## 소스
 
-```
+```c++
 
 int main()
 {
