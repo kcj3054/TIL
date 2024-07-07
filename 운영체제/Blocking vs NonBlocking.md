@@ -20,4 +20,8 @@
         ->   sync가 드어간다면 '완료 여부'를 유저프로세스에서 커널로 확인해야하기에 주기적으로 확인하는 작업이들어간다. 
 """
 
+### non-block, block, async, sync
+
+![](../게임서버/네트워크/block_non-block.png)
+
 #### 출처 인프러 파이썬 고수가 되는 파이썬 : 동시성과 병렬성 문법 배우기 Feat. 멀티스레딩 vs 멀티프로세싱 (Inflearn Original)
