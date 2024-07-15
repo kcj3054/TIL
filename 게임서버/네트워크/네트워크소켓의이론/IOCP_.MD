@@ -113,7 +113,7 @@ Memory Page Locking은 특정 메모리 페이지가 스왑되지 않도록 메�
 #### 1 - Send 구현 
 - GQCS(GetQueuedCompletionStatus) 
 
-- Send 호출 시 WSASend를 바로 호출하는 것이 아니라 Queue에 담아 놓는다
+- Send 호출 시 WSASend(비동기 send)를 바로 호출하는 것이 아니라 Queue에 담아 놓는다
 
 - 해당 Queue에서 담긴 데이터가 2개이상이면 send를 하면안된다  왜냐? 이전 send가 완료되지 않았기 때문이다. 
 	- send가 완료될 때는 GQCS에서 알 수 있고, GQCS 처리 후 QUEUE에 있는 SEND 데이터를 하나 지운다. 
@@ -122,7 +122,9 @@ Memory Page Locking은 특정 메모리 페이지가 스왑되지 않도록 메�
 #### WSASend
 - send의 비동기라 생각하면된다. 
 
-- WSASend가 실행되면 바로 send가 되는 것이 아니라... 
+- WSASend가 실행되면 바로 send가 되는 것이 아니라... IOCP QUEUE에 들어가는 것이다.해당 처리 완료를 GetQueuedCompletionStatus로 완료 통보를 확인할 수 있다. 
+
+- 
 
 
 #### Accept 비동기로 구현 
