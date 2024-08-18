@@ -5,7 +5,7 @@
 
 
 #### 예시 
-````
+````java
 package simgleton;
 
 public class Database {

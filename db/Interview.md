@@ -29,4 +29,13 @@
 
 5. transaction 격리 수준
 
-- 
+
+### 트랜잭션 격리 수준에 따른 문제
+
+- Dirty Read (더티 리드)
+  - 커미되지 않은 데이터가 다른 트랜잭션에 의해 읽히는 경우.
+
+- Non-repeatable Read (반복 불가능한 읽기)
+
+
+- Phantom Read (팬텀 리드): 
