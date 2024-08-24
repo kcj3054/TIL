@@ -16,5 +16,49 @@
 
 
 
-
 - 출처 : 씹어먹는 c++ 
+
+
+## vector 예제 
+
+````c++
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+	//size  -> 실제 용량 중 사용하는 부분
+	//capacity  -> 실제 용량
+
+	//int* v = new int[3] {1, 2, 3};
+
+	vector<int> v{ 1, 2, 3 };
+
+	//stack<int> s ->  stack 사용할 때 재귀를 사용하면 stackoverflow가 발생하기도한다 그럴 때 
+	// vector<int> v v.reserve(1024) 후 사용하면 효율이 더 좋다 
+
+	// 미리 용량을 다 할당 받아 놓기때문에 속도에 향상이있다, 
+	//v.reserve(1024)  // 메모리 용량 미리 할당 받음 , capacity 용량이 됌 
+	v.resize(2);
+
+	for (auto& e : v)
+		cout << e << " "; 
+	cout << endl;
+	
+	// 2 3 으로 출력 됌 , 속도를 높이기 위해 더 작은쪽으로 resize할 때 메모리는 반납하지 않는 상태로있는다.
+	
+	cout << v.size() << " " << v.capacity() << endl;
+
+	cout << v[2] << endl; // run time error 발생 
+	cout << v.at(2) << endl; // 
+
+
+	int* ptr = v.data();
+	cout << ptr[2] << endl; // 출력 가능 
+
+
+	return 0;
+}
+````

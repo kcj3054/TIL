@@ -13,7 +13,7 @@
 
 
 ## 소스
-````
+````c++
 #include <bits/stdc++.h>
 
 using namespace std;

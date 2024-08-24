@@ -1,0 +1,45 @@
+## virtual
+
+
+#include <iostream>
+
+using namespace std;
+
+class Base
+{
+public:
+	virtual ~ Base()
+	{
+		cout << "~Base() " << endl;
+	}
+};
+
+class Derived : public Base
+{
+public:
+	Derived(int length)
+	{
+		m_arry = new int[length];
+	}
+
+	//virtual 키워드는 부모에만 붙여도되나, 자식에도 붙여줌 
+	virtual ~Derived() override // 부모에서 virtual 빼면 override가 안된다 
+	{
+		cout << "~Derived() " << endl;
+		delete[] m_arry;
+	}
+
+private:
+	int* m_arry = nullptr;
+};
+
+
+int main()
+{
+	// Derived derived(5)
+	Base* b = new Derived(5);
+	
+	delete b;
+
+	return 0;
+}

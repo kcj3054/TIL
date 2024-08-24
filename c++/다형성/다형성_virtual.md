@@ -104,4 +104,84 @@ int main(){
 
 - virtual 키워드 가상 함수 
 
-출처 : https://cosyp.tistory.com/228
+출처 : https://cosyp.tistory.com/228 
+
+
+## c++ 다형성 동물 예제 1
+
+````c++
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Animal
+{
+public:
+	Animal(){}
+	Animal(string name) :_name(name) {}
+public:
+	void speak() const
+	{
+		cout << "Animal xxx" << endl;
+	}
+private:
+	string _name;
+};
+
+class Cat : public Animal
+{
+public:
+	Cat(){}
+	Cat(string name) : Animal(name) {}
+public:
+	void speak() const
+	{
+		cout << "Cat ccc" << endl;
+	}
+};
+
+class Dog : public Animal
+{
+public:
+	Dog() {}
+	Dog(string name) : Animal(name)
+	{}
+public:
+	void speak() const
+	{
+		cout << "Dog ddd" << endl;
+	}
+};
+
+int main()
+{
+	Animal* animal1 = new Cat();
+	Animal* animal2 = new Dog();
+
+	// animal1->speak();
+	// animal2->speak();
+
+	//위처럼 다형성을 사용하지 않는다면.. for문으로 다돌려야한다 각 각 ..
+	/*
+	* for(int i = 0; i < 5; ++i)
+	* {
+	*   cats[i].speak()
+	*   dogs[i].speak();
+	* }
+	*/
+
+	Cat cat[] = { Cat("cat1") };
+	Dog dog[] = { Dog("dog1") };
+
+	//이 또한 다형성의 이점이다, 배열하나를 만들어 넣고 배열 각 원소마다 상속들을 집어넣을 수 있다. 
+	Animal* my_animals[] = { &cat[0], &dog[0] };
+	
+	//speak가 다형성으로 제대로 출력될려면 virtual 키워드를 붙여야한다. virtual table, virtual function ptr
+	for (auto& animal : my_animals)
+	{
+		animal->speak();
+	}
+	return 0;
+}
+````
