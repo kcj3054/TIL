@@ -10,8 +10,6 @@
 
 
 
-
-
 ## 소스
 ````c++
 #include <bits/stdc++.h>
