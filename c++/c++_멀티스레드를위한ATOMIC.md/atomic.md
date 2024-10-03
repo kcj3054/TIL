@@ -8,7 +8,7 @@
 
 
 ## 소스
-````
+````c++
 #include <bits/stdc++.h>
 #include <thread>
 #include <atomic>
@@ -66,6 +66,61 @@ int main()
 
 	cout << sum << endl; // atomic연산 미적용
 	cout << _sum << endl;  //atomic연산
+	return 0;
+}
+````
+
+## atomic cas 연산 
+
+````c++
+
+#include <iostream>
+#include <thread>
+#include <atomic>
+
+
+using namespace std;
+
+std::atomic<int> shared_data(0);
+
+void increment_if_zero()
+{
+	int expected = 0;
+	int new_value = 1;
+
+	//cas연산을 사용해서 shared_data가 0일경우만 1로 변경 
+
+	if (shared_data.compare_exchange_strong(expected, new_value))
+	{
+		std::cout << "Thread " << std::this_thread::get_id() << ": 성공적으로 값을 0에서 1로 변경했습니다.\n";
+	}
+	else
+	{
+		std::cout << "Thread " << std::this_thread::get_id() << ": 값이 이미 0이 아닙니다, 현재 값: " << shared_data.load() << "\n";
+
+	}
+
+}
+
+int main()
+{
+
+	//여러 thread가 동이세 cas 연산을 시도 
+	std::thread t1(increment_if_zero);
+	std::thread t2(increment_if_zero);
+	std::thread t3(increment_if_zero);
+
+
+	t1.join();
+	t2.join();
+	t3.join();
+
+	/*jthread jt1(increment_if_zero);
+	jthread jt2(increment_if_zero);
+	jthread jt3(increment_if_zero);*/
+
+	cout << "최종 값" << shared_data << endl;
+
 	return 0;
 }
 ````
