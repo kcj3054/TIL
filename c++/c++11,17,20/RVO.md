@@ -8,7 +8,7 @@
     > rvo는 c++ 17로 오면서 강제되었다고한다. 일반적으로 임시 객체가 생성될 때 생성되지 않게 compiler가 최적화를 보장해주는 것이다 아래의 코드에 예시가 존재한다.
 
 
-````
+````c++
 std::string bar()
 {
     return std::string("hello");
